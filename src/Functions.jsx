@@ -9,7 +9,7 @@ function Pad({ sound }) {
       return () => {
         document.removeEventListener("keydown", handleKeyPress);
       };
-    }, []);
+    });
   
     const handleKeyPress = (e) => {
       if (e.keyCode === sound.keyCode) {
@@ -28,7 +28,7 @@ function Pad({ sound }) {
     return (
       <div className="btn">
         <button onClick={playSound} className="drum-pad">
-          <audio className="clip" id={sound.keyTrigger} src={sound.url} />
+          <audio className={`clip ${active && 'secondary'}`} id={sound.keyTrigger} src={sound.url} />
           {sound.keyTrigger}
         </button>
       </div>
