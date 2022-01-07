@@ -19,8 +19,9 @@ function App() {
           ))}
 
           <br />
-
-          <p>Created from Alejandro as a FCC project</p>
+          <h4>You pressed:</h4>
+          <br />
+          <p>Created by Alejandro for FreeCodeCamp</p>
         </div>
       </div>
     </div>
