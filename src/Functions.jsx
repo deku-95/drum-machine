@@ -1,7 +1,7 @@
 import React from "react";
 
 
-function Pad({ sound }) {
+function Pad({ sound, record }) {
     const [active, setActive] = React.useState(false);
   
     React.useEffect(() => {
@@ -23,12 +23,13 @@ function Pad({ sound }) {
       setTimeout(() => setActive(false), 200);
       audio.currentTime = 0;
       audio.play();
+      record(sound.id + "");
     };
   
     return (
-      <div className="btn">
-        <button onClick={playSound} className="drum-pad">
-          <audio className={`clip ${active && 'secondary'}`} id={sound.keyTrigger} src={sound.url} />
+      <div className="wrapper">
+        <button onClick={playSound} className={`drum-pad ${active && 'secondary'}`}>
+          <audio className="clip" id={sound.keyTrigger} src={sound.url} />
           {sound.keyTrigger}
         </button>
       </div>
