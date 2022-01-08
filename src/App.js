@@ -3,20 +3,25 @@ import "./App.css";
 import { Pad } from "./Functions";
 import keySounds from "./KeySounds";
 
+const script = document.createElement("script");
+script.src = "https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js";
+script.async = true;
+document.body.appendChild(script);
+
 function App() {
   const [pressedKeys, record] = React.useState("");
   return (
     <div className="App">
-      <div className="drum-machine container">
+      <div id="drum-machine" className="drum-machine container">
         <header className="App-header">
           <h2>Drum Machine</h2>
         </header>
-        <div id="display" className="wrapper">
+        <div  className="wrapper">
           {keySounds.map((sound) => (
             <Pad
               key={sound.id}
               sound={sound}
-              className="drum-pad"
+              className='drum-pad'
               id={sound.id}
               record={record}
             />
@@ -24,7 +29,7 @@ function App() {
         </div>
         <br />
 
-        <h3 class>You pressed: {pressedKeys}</h3>
+        <h3 class>You pressed: <span id="display">{pressedKeys}</span></h3>
         <br />
         <p>
           Created by{" "}

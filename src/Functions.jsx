@@ -27,7 +27,7 @@ function Pad({ sound, record }) {
 
   return (
     <div className="wrapper">
-      <button onClick={playSound} className={`drum-pad ${active && "active"}`}>
+      <button id={sound.id} onClick={playSound} className={`drum-pad ${active && "active"}`}>
         <audio className="clip" id={sound.keyTrigger} src={sound.url} />
         {sound.keyTrigger}
       </button>
